@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <script>
+        var questions=new Array();
+        var types=new Array();
+        var anwers=new Array();
+        function showFileUp(){
+            document.getElementById("fileUp").hidden=false;
+        }
+        function hideFileUp(){
+            document.getElementById("fileUp").hidden=true;
+        }
+        function hideCard(){
+            document.getElementById("inner").hidden=true;
+            document.getElementById("userAns").hidden=true;
+            document.getElementById("topic").hidden=true;
+        }
+        function showCard(){
+            document.getElementById("inner").hidden=false;
+            document.getElementById("userAns").hidden=false;
+            document.getElementById("topic").hidden=false;
+        }
+        function flipCard(){ 
+            d = document.getElementById("inner")
+            for(i=0;i<=180;i++){
+                d.style.transform="rotateY("+i+"deg)";
+            }
+        }
+        function checkFile(){}
+        function a(){
+            hideCard();
+            showFileUp();
+        }
+        function b(){
+            hideFileUp();
+            showCard();
+        }
+    </script>
+     <style>
+    @media only screen and (orientation: portrait) {
+        body{
+             background: rgb(41, 37, 37);
+             font-size: 5VW;
+         }
+         input{
+             background-color:rgb(24, 66, 85);
+             color: white;
+             border:none;
+             font-size: 5VW;
+         }
+         .title1{
+            font-size: 7VW;
+         }
+         button{
+            font-size: 5VW;
+         }
+    }
+    @media only screen and (orientation: landscape) {
+        body{
+             background: rgb(41, 37, 37);
+             font-size: 2VW;
+            
+         }
+         input{
+             background-color:rgb(24, 66, 85);
+             color: white;
+             border:none;
+             font-size: 2VW;
+         }
+         .title1{
+            font-size: 4VW;
+         }
+         button{
+            font-size: 2VW;
+         }
+    }
+         .cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+         .frame{
+             width: 100%;
+             height: 100%;
+             margin:1vw 0 0 0;
+         }
+         .pageCard{
+             display: inline-block;
+             margin:auto;
+             background: rgb(34, 31, 31);
+             padding:10px 10px 10px 10px;
+             box-shadow:5px 5px 3px rgb(22, 20, 20);
+             color:white;
+             
+         }
+         button{
+             float:right;
+         }
+     </style>
+ </head>
+ <body >
+    <div id="closer" class="frame" class="background">
+        <div class="cont">
+            <div class="pageCard">
+                <a1 class="title1">My Flip Cards</a1>
+            </div>
+        </div>
+    </div>
+    <div id="topp" class="frame" class="background">
+        <div class="cont">
+            <div class="pageCard">
+                <a1 class="title1">Login</a1>
+                <form action="#" method="POST">
+                    <div class="sField">
+                        <p>User Email:</p>
+                        <input name="email" value="email@server.com">
+                    </div>
+                    <div class="sField">
+                        <p>Password:</p>
+                        <input name="password" value="" type="password"/>
+                        <br/><br/>
+                        <button>submit</button>
+                    </div>
+                        
+                </form>
+            </div>
+        </div>
+    </div>
+    
+ </body>
+</html>

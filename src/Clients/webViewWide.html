@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <style>
+  html {
+    height:100%;
+  }
+  body {
+    height:100%;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(36, 36, 36);
+  }
+  .main-container {
+    width: 600px;
+    margin:0,0,0,5%;
+    padding-left:50px;
+    height: 100%;
+    padding-left: 50px;
+    background: rgb(54, 54, 54);
+  }
+  .flip-card {
+    background-color: transparent;
+    width: 500px;
+    height: 300px;
+    perspective: 1000px;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  @keyframes flip {
+     from {transform: rotateY(0deg);}
+     to {transform: rotateY(180deg);}
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  .flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+  }
+   /*.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }*/
+ </style>
+ <script>
+  var questions=new Array();
+  var types=new Array();
+  var anwers=new Array();
+  function showFileUp(){
+     document.getElementById("fileUp").hidden=false;
+  }
+  function hideFileUp(){
+     document.getElementById("fileUp").hidden=true;
+  }
+  function hideCard(){
+    document.getElementById("inner").hidden=true;
+    document.getElementById("userAns").hidden=true;
+    document.getElementById("topic").hidden=true;
+  }
+  function showCard(){
+    document.getElementById("inner").hidden=false;
+    document.getElementById("userAns").hidden=false;
+    document.getElementById("topic").hidden=false;
+  }
+  function flipCard(){ 
+    d = document.getElementById("inner")
+    for(i=0;i<=180;i++){
+      d.style.transform="rotateY("+i+"deg)";
+    }
+  }
+  function checkFile(){
+  }
+  function a(){
+    hideCard();
+    showFileUp();
+  }
+  function b(){
+    hideFileUp();
+    showCard();
+  }
+ </script>
+</head>
+ <body onload="a()">
+  <!--start-->
+  <div class="main-container">
+    <div>
+      <h1 id="topic" style="color: white;margin: 0;">Its alive!</h1>
+    </div>
+    <div  class="flip-card">
+      <div id="fileUp">
+        <h1 style="color:white">Shirly i love you!!</h1>
+        <h2 style="color:white">very very very very very very much</h2>
+        <input onchange="b()" style="color:white" type="file" accept=".csv"></input>
+      </div>
+      <div class="flip-card-inner" id="inner">
+        <div class="flip-card-front">
+          <h1 id="ques">Question</h1>
+        </div>
+        <div class="flip-card-back">
+          <h1 id="ans">Answer ....</h1>
+        </div>
+      </div>
+    </br>
+      <div id="userAns">
+        <h1>Your answer:</h1>
+        <input onchange="flipCard()" style="width:483px;margin-top:5px" type="text" ></input>
+      </div>
+      </div>
+  </div>
+ </body>
+ <!--end-->>
+</html>

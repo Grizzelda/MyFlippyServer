@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #GBox{
+                margin:auto;
+                background-color: rgb(0, 0, 0);
+            }
+            .BoxTitle{
+                text-align:center;
+                font-size:10vmin;
+                color:white;
+                margin:0;
+            }
+            .card-cont{
+                width:50%;
+                height:50%;
+                position: relative;
+                margin:auto;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+            .card-front{
+                background-color: #2a1475;
+                color: #b2cbdb;
+                width:100%;
+                height: 100%;
+                position: absolute;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            .card-back{
+                transform: rotateY(180deg);
+                background-color: #2980b9;
+                color: white;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            
+        </style>
+        <script>
+            function flipCard(idd){ 
+                d = document.getElementById(idd)
+                for(i=0;i<=180;i++){
+                    d.style.transform="rotateY("+i+"deg)";
+                }
+                //alert(idd);
+            }
+            function getOrientation(){
+                if(window.innerWidth>window.innerHeight){
+                    return 0;
+                }else{
+                    return 1;
+                }
+            }
+            function calcBox(){
+                if(window.innerWidth>window.innerHeight){
+                    return window.innerHeight-15;
+                }else{
+                    return window.innerWidth-15;
+                }
+            }
+            function calabrate(){
+                len = calcBox();
+                box = document.getElementById("GBox");
+                box.style.height=len+"px";
+                box.style.width=len+"px";
+            }
+            function start(){
+                calabrate();
+            }
+            window.onresize=calabrate;
+            
+        </script>
+    </head>
+    <body onload="start()">
+        <div id="GBox">
+                <h1 class="BoxTitle">title</h1>
+                <div id="card1" class="card-cont" onmouseover="flipCard(this.id)">
+                    <div class="card-front">
+                        
+                    </div>
+                    <div class="card-back">
+
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>
